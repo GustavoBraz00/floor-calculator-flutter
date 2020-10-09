@@ -1,5 +1,6 @@
 class ResultModel {
   double areaFloor;
+  double totalPrice;
   int piecesByWidth;
   int piecesByLength;
 
@@ -14,4 +15,5 @@ class ResultModel {
   int get amountPiecesAndFooter => amountPieces + amountFloor;
   double get areaWithoutFooter => amountPieces * areaFloor;
   double get areaWithFooter => amountPiecesAndFooter * areaFloor;
+  double get total => areaWithFooter * totalPrice;
 }

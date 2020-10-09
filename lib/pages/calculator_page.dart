@@ -59,6 +59,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
           ),
           _buildVerticalSpace(height: 40),
           _buildCalculateButton(),
+          _buildClearButton(),
         ],
       ),
     );
@@ -103,6 +104,13 @@ class _CalculatorPageState extends State<CalculatorPage> {
     return SizedBox(height: height);
   }
 
+  _buildClearButton() {
+    return RaisedButton(
+      child: const Text('LIMPAR'),
+      onPressed: _limpar,
+    );
+  }
+
   void _calcular() {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
@@ -112,5 +120,9 @@ class _CalculatorPageState extends State<CalculatorPage> {
         builder: (context) => ResultDialog(result),
       );
     }
+  }
+
+  void _limpar() {
+    _formKey.currentState.reset();
   }
 }
